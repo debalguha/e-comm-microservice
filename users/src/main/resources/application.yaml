@@ -1,0 +1,31 @@
+quarkus:
+  log:
+    level: debug
+  hibernate-orm:
+    database:
+      generation: drop-and-create
+    log:
+      sql: true
+    dialect: org.hibernate.dialect.PostgreSQL10Dialect
+  datasource:
+    db-kind: postgresql
+    username: user
+    password: password
+    jdbc: false
+    reactive:
+      url: postgres://ylaekhhk:4Cek_LZ7hSls-4xpZD36inE3YNJ0IoS6@isilo.db.elephantsql.com/ylaekhhk?sslmode=require
+      max-size: 20
+#"%test":
+#  quarkus:
+#    hibernate-orm:
+#      database:
+#        generation: drop-and-create
+#      log:
+#        sql: true
+#    datasource:
+#      db-kind: h2
+#      username: sa
+#      jdbc: false
+#      reactive:
+#        url: jdbc:h2:tcp://localhost/mem:test
+#        max-size: 20

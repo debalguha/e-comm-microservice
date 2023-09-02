@@ -4,22 +4,18 @@ import com.ecommerce.usermgmt.model.UserModel;
 import com.ecommerce.usermgmt.repository.UserRepository;
 import io.quarkus.arc.impl.ParameterizedTypeImpl;
 import io.quarkus.hibernate.reactive.panache.Panache;
-import io.quarkus.hibernate.reactive.panache.common.WithTransaction;
 import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.junit.QuarkusTest;
 import io.quarkus.vertx.VertxContextSupport;
-import io.restassured.common.mapper.TypeRef;
 import io.restassured.http.ContentType;
 import io.restassured.http.Method;
-import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 
@@ -80,8 +76,8 @@ public class UserResourceTest {
 
     @Test
     public void whenListUser_shouldRetrieve() {
-        UserModel aliceModel = postOrPutUser(new UserModel(null, "Alice", "alice@exampe.con", "9831319123"), Method.POST);
-        UserModel bobModel = postOrPutUser(new UserModel(null, "Bob", "bob@exampe.con", "9330929329"), Method.POST);
+        postOrPutUser(new UserModel(null, "Alice", "alice@exampe.con", "9831319123"), Method.POST);
+        postOrPutUser(new UserModel(null, "Bob", "bob@exampe.con", "9330929329"), Method.POST);
         List<UserModel> users = listUser();
         Assertions.assertEquals(2, users.size());
     }

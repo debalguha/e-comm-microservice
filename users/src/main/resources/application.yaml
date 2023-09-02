@@ -1,6 +1,6 @@
 quarkus:
   log:
-    level: debug
+    level: info
   hibernate-orm:
     database:
       generation: drop-and-create
